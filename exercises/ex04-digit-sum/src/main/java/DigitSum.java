@@ -19,9 +19,26 @@ public class DigitSum {
      *
      * @param n any int
      * @return the sum of its decimal digits
-     */
+     *
+     * for-loop approach
     public static int digitSum(int n) {
-        // TODO: complete
-        return 0;
+        String digits = String.valueOf(Math.abs(n));
+        int result = 0;
+        for (int i = 0; i < digits.length(); i++){
+            result = result + Character.getNumericValue(digits.charAt(i));
+        }
+        return result;
+    }
+}
+    */
+    public static int digitSum(int n) {
+        String digits = String.valueOf(Math.abs(n));
+        int result = 0;
+        int i = 0;
+        while (i < digits.length()) {
+            result = result + Character.getNumericValue(digits.charAt(i));
+            i++;
+        }
+        return result;
     }
 }
