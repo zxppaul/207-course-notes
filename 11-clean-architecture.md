@@ -44,7 +44,7 @@ Before we fully talk through how we construct the CA engine and trace the flow o
 
 ### 11.3.1 Frameworks and Drivers
 
-- `View` -- Displays information and reacts to user interaction. The View Will ask a Controller to do something the user wants. The information that the View displays is stored in a ViewModel. When the View Model is updated, the View is alerted and will display the new information to the user.
+- `View` -- Displays information and reacts to user interaction. The View Will ask a Controller to do something the user wants. The information that the View displays is stored in a ViewModel. When the View Model is updated, the View is alerted and will display the new information to the user. (Paul's Note: this view can be implemented with Java Swing codes!)
 
 - `Data Access` -- This class reads and writes persistent data to a file or database outside the program. It is again a detail and implements the Data Access Interface specified by the Use Case layer. It will create temporary Entities that the Use Case uses to do its work.
 
