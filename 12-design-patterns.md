@@ -141,6 +141,22 @@ Shape shape = SimpleShapeFactory.getShape(userInput);
 
 since we don't need to create an instance of the `SimpleShapeFactory` at all!
 
+### Factory Method example (Paul's note)
+
+Instead of having conditional logic, we define a method in a parent class and let subclasses override it.
+
+```java
+public abstract class ShapeDrawer {
+
+    public abstract Shape createShape();
+
+    public void draw() {
+        Shape shape = createShape();
+        shape.draw();
+    }
+}
+```
+
 ### Abstract Factory example
 
 Let's look at the same example, but written using an abstract factory instead.
