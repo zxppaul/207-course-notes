@@ -143,19 +143,49 @@ since we don't need to create an instance of the `SimpleShapeFactory` at all!
 
 ### Factory Method example (Paul's note)
 
-Instead of having conditional logic, we define a method in a parent class and let subclasses override it.
+Factory Method combines the responsibilities of the client and factory.
+
+So instead of having a separate ShapeFactory class, we put the factory method directly inside `ShapeApp`:
 
 ```java
-public abstract class ShapeDrawer {
+public abstract class ShapeApp {
 
-    public abstract Shape createShape();
+    public abstract Shape getShape();
 
-    public void draw() {
-        Shape shape = createShape();
-        shape.draw();
+    public void run() {
+        Shape shape = getShape();
+        // do something with the shape...
     }
 }
 ```
+
+Then we create subclasses of ShapeApp itself:
+
+```java
+public class CircleApp extends ShapeApp {
+    @Override
+    public Shape getShape() {
+        return new Circle();
+    }
+}
+
+public class RectangleApp extends ShapeApp {
+    @Override
+    public Shape getShape() {
+        return new Rectangle();
+    }
+}
+```
+
+To use it:
+
+```java
+ShapeApp app = new CircleApp();
+app.run();
+```
+
+Here, `ShapeApp` does not have a separate factory object. Instead, its subclasses determine how shapes are instantiated by overriding `getShape()`.
+
 
 ### Abstract Factory example
 
